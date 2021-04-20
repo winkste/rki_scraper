@@ -15,7 +15,13 @@ Last the new received data, the last dataset in the dataset files are published 
 ## Setup & Preparations
 There are two methods provided to run the rki scraper:
 - Python endless loop: run endless loop in Python with a dedicated sleep function
-- Single shot: Run scraper once, can be combined with a cronjob 
+- Single shot: Run scraper once, can be combined with a cronjob
+
+### Virtual environment setup
+This project relates on several common python packages. All packages are stored in a requirements.txt file which can be used to generate a virtual environment. This virtual environment is used later in the cronjob execution method.
+
+### MQTT configuration
+All connection details to connect to a MQTT broker to publish the statistic data is read from a secrets.py file. As this contains security keys and passwords, this is not stored in this repository, you will find a template secrets.py file in the source file list which you can modify to your local settings. The mqtt messages are currently hardcoded.
 
 ### Single shot with cronjob
 Ensure that your environment is set to the correct editor:
