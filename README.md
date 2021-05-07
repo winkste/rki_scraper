@@ -27,6 +27,17 @@ This project relates on several common python packages. All packages are stored 
 ### MQTT configuration
 All connection details to connect to a MQTT broker to publish the statistic data is read from a secrets.py file. As this contains security keys and passwords, this is not stored in this repository, you will find a template secrets.py file in the source file list which you can modify to your local settings. The mqtt messages are currently hardcoded.
 
+### Identify another country
+Under /resources there is an example export from the RKI database stored. This example include all countries and with this the country number needed to modify the api request. use this file to identify the correct country.
+```
+Example:
+Celle has the Object ID 34, this leads to a api request with the following entry:
+https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_Landkreisdaten/FeatureServer/0/query?where=OBJECTID%20%3E%3D%2034%20AND%20OBJECTID%20%3C%3D%2034&outFields=OBJECTID,GEN,BEZ,death_rate,cases,deaths,cases_per_100k,cases_per_population,last_update,cases7_per_100k,recovered,cases7_bl_per_100k,cases7_bl,death7_bl,cases7_lk,death7_lk,cases7_per_100k_txt,AdmUnitId&outSR=4326&f=json
+
+find the 34 in the api request above.
+
+```
+
 ### Single shot with cronjob
 Ensure that your environment is set to the correct editor:
 ```
